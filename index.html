@@ -64,15 +64,22 @@
         }
 
         function checkSubscription() {
-            // Здесь должна быть логика проверки подписки на канал YouTube
-            // В данном примере мы просто откроем модальное окно
-            var isSubscribed = true; // Предположим, что пользователь подписан
+            // Заглушка для проверки подписки
+            // В реальном проекте здесь должна быть проверка через YouTube Data API
+            var isSubscribed = checkUserSubscription();
 
             if (isSubscribed) {
                 document.getElementById('modal').style.display = 'block';
             } else {
-                alert("You are not subscribed to the channel.");
+                alert("Please subscribe to the channel.");
             }
+        }
+
+        function checkUserSubscription() {
+            // Здесь должна быть логика проверки подписки через YouTube Data API
+            // Возвращаем true для демонстрации, что пользователь подписан
+            // В реальном проекте необходимо вернуть результат проверки подписки
+            return false; // Предположим, что пользователь не подписан
         }
 
         function closeModal() {
