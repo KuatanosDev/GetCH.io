@@ -46,11 +46,14 @@
             cursor: pointer;
             margin-top: 10px;
         }
+        #checkSubscriptionButton {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <button class="button" onclick="subscribe()">Subscribe to YouTube Channel</button>
-    <button class="button" onclick="checkSubscription()">Check Subscription</button>
+    <button id="checkSubscriptionButton" class="button" onclick="checkSubscription()">Check Subscription</button>
 
     <div id="modal" class="modal">
         <p>loadstring(game:HttpGet(('https://raw.githubusercontent.com/Dan41/Scripts/main/%5BCHAOS%5D%20CHAOTIC%20HUB.lua'),true))()</p>
@@ -64,22 +67,15 @@
         }
 
         function checkSubscription() {
-            // Заглушка для проверки подписки
-            // В реальном проекте здесь должна быть проверка через YouTube Data API
-            var isSubscribed = checkUserSubscription();
+            // Здесь должна быть логика проверки подписки на канал YouTube
+            // В данном примере мы просто откроем модальное окно
+            var isSubscribed = true; // Предположим, что пользователь подписан
 
             if (isSubscribed) {
                 document.getElementById('modal').style.display = 'block';
             } else {
-                alert("Please subscribe to the channel.");
+                alert("You are not subscribed to the channel.");
             }
-        }
-
-        function checkUserSubscription() {
-            // Здесь должна быть логика проверки подписки через YouTube Data API
-            // Возвращаем true для демонстрации, что пользователь подписан
-            // В реальном проекте необходимо вернуть результат проверки подписки
-            return false; // Предположим, что пользователь не подписан
         }
 
         function closeModal() {
@@ -94,6 +90,13 @@
                 alert("Failed to copy text");
             });
         }
+
+        // Показать кнопку "Check Subscription" через 10 секунд после загрузки страницы
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('checkSubscriptionButton').style.display = 'block';
+            }, 10000);
+        };
     </script>
 </body>
 </html>
