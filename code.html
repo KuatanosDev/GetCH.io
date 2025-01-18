@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button {
+            background-color: red;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border: 2px solid red;
+        }
+        .modal p {
+            margin: 10px 0;
+        }
+        .close-btn, .copy-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="subscribe()">Subscribe to YouTube Channel</button>
+    <button class="button" onclick="checkSubscription()">Check Subscription</button>
 
+    <div id="modal" class="modal">
+        <p>loadstring(game:HttpGet(('https://raw.githubusercontent.com/Dan41/Scripts/main/%5BCHAOS%5D%20CHAOTIC%20HUB.lua'),true))()</p>
+        <button class="copy-btn" onclick="copyText()">Copy</button>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+
+    <script>
+        function subscribe() {
+            window.location.href = "https://www.youtube.com/channel/UCMk8lcg5lJiYaGvtWYEEHVw";
+        }
+
+        function checkSubscription() {
+            // Здесь должна быть логика проверки подписки на канал YouTube
+            // В данном примере мы просто откроем модальное окно
+            var isSubscribed = true; // Предположим, что пользователь подписан
+
+            if (isSubscribed) {
+                document.getElementById('modal').style.display = 'block';
+            } else {
+                alert("You are not subscribed to the channel.");
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function copyText() {
+            var text = "loadstring(game:HttpGet(('https://raw.githubusercontent.com/Dan41/Scripts/main/%5BCHAOS%5D%20CHAOTIC%20HUB.lua'),true))()";
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Text copied to clipboard");
+            }, function() {
+                alert("Failed to copy text");
+            });
+        }
+    </script>
+</body>
+</html>
